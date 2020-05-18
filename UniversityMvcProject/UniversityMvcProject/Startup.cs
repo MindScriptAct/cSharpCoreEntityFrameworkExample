@@ -9,6 +9,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using UniversityMvcProject.Models;
+using Microsoft.EntityFrameworkCore;
+using UniversityMvcProject.Data;
 
 namespace UniversityMvcProject
 {
@@ -27,6 +29,9 @@ namespace UniversityMvcProject
             services.AddControllersWithViews();
 
             services.AddSingleton<ICourseDataProvider, InMemoryCourseProvider>();
+
+            services.AddDbContext<UniversityMvcProjectContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("UniversityMvcProjectContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
