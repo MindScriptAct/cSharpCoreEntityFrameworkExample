@@ -2,15 +2,17 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using UniversityMvcProject.Data;
 
 namespace UniversityMvcProject.Migrations
 {
     [DbContext(typeof(UniversityMvcProjectContext))]
-    partial class UniversityMvcProjectContextModelSnapshot : ModelSnapshot
+    [Migration("20200522112056_subjectsAdded")]
+    partial class subjectsAdded
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
