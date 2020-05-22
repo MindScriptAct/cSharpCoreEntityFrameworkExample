@@ -11,8 +11,10 @@ namespace UniversityMvcProject.Models
         [Key]
         public int Id { get; set; }
 
+        public int StudentId { get; set; }
         public Student Student { get; set; }
         
+        public int SubjectId { get; set; }
         public Subject Subject { get; set; }
 
         [Range(0.0, 10.0)]
