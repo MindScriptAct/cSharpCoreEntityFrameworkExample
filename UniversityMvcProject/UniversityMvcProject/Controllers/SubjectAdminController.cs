@@ -22,7 +22,8 @@ namespace UniversityMvcProject.Controllers
         // GET: SubjectAdmin
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Subjects.ToListAsync());
+            var universityMvcProjectContext = _context.Subjects.Include(s => s.Course);
+            return View(await universityMvcProjectContext.ToListAsync());
         }
 
         // GET: SubjectAdmin/Details/5
@@ -34,6 +35,7 @@ namespace UniversityMvcProject.Controllers
             }
 
             var subject = await _context.Subjects
+                .Include(s => s.Course)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (subject == null)
             {
@@ -46,6 +48,7 @@ namespace UniversityMvcProject.Controllers
         // GET: SubjectAdmin/Create
         public IActionResult Create()
         {
+            ViewData["CourseId"] = new SelectList(_context.Courses, "Id", "Name");
             return View();
         }
 
@@ -54,7 +57,7 @@ namespace UniversityMvcProject.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name")] Subject subject)
+        public async Task<IActionResult> Create([Bind("Id,Name,CourseId")] Subject subject)
         {
             if (ModelState.IsValid)
             {
@@ -62,6 +65,7 @@ namespace UniversityMvcProject.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["CourseId"] = new SelectList(_context.Courses, "Id", "Name", subject.CourseId);
             return View(subject);
         }
 
@@ -78,6 +82,7 @@ namespace UniversityMvcProject.Controllers
             {
                 return NotFound();
             }
+            ViewData["CourseId"] = new SelectList(_context.Courses, "Id", "Name", subject.CourseId);
             return View(subject);
         }
 
@@ -86,7 +91,7 @@ namespace UniversityMvcProject.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name")] Subject subject)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,CourseId")] Subject subject)
         {
             if (id != subject.Id)
             {
@@ -113,6 +118,7 @@ namespace UniversityMvcProject.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["CourseId"] = new SelectList(_context.Courses, "Id", "Name", subject.CourseId);
             return View(subject);
         }
 
@@ -125,6 +131,7 @@ namespace UniversityMvcProject.Controllers
             }
 
             var subject = await _context.Subjects
+                .Include(s => s.Course)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (subject == null)
             {
