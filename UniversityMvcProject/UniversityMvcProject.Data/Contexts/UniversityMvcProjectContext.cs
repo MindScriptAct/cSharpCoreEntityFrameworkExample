@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
-using UniversityMvcProject.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using UniversityMvcProject.Data.Models;
 
-namespace UniversityMvcProject.Data
+namespace UniversityMvcProject.Data.Data
 {
     public class UniversityMvcProjectContext : DbContext
     {

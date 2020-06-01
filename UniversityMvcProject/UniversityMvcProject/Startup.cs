@@ -11,6 +11,7 @@ using Microsoft.Extensions.Hosting;
 using UniversityMvcProject.Models;
 using Microsoft.EntityFrameworkCore;
 using UniversityMvcProject.Data;
+using UniversityMvcProject.Data.Contexts;
 
 namespace UniversityMvcProject
 {

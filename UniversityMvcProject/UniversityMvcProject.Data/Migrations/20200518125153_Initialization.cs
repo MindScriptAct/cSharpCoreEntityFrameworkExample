@@ -1,13 +1,13 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace UniversityMvcProject.Migrations
+namespace UniversityMvcProject.Data.Migrations
 {
-    public partial class subjectsAdded : Migration
+    public partial class Initialization : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Subjects",
+                name: "Courses",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -16,14 +16,14 @@ namespace UniversityMvcProject.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Subjects", x => x.Id);
+                    table.PrimaryKey("PK_Courses", x => x.Id);
                 });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Subjects");
+                name: "Courses");
         }
     }
 }

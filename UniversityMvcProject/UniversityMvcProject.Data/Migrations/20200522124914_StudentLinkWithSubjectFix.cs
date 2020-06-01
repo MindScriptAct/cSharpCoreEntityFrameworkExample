@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace UniversityMvcProject.Migrations
+namespace UniversityMvcProject.Data.Migrations
 {
     public partial class StudentLinkWithSubjectFix : Migration
     {

@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace UniversityMvcProject.Migrations
+namespace UniversityMvcProject.Data.Migrations
 {
     public partial class studentsAdded : Migration
     {

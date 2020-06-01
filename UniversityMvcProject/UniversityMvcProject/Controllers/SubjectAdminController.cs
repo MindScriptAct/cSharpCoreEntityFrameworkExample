@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using UniversityMvcProject.Data;
+using UniversityMvcProject.Data.Data;
+using UniversityMvcProject.Data.Models;
 using UniversityMvcProject.Models;
 
 namespace UniversityMvcProject.Controllers
