@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UniversityMvcProject", "Uni
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniversityMvcProject.Data", "UniversityMvcProject.Data\UniversityMvcProject.Data.csproj", "{C4A1936E-CBCE-4A64-83DC-7F77225E51F7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniversityMvcProject.CampusApi", "UniversityMvcProject.CampusApi\UniversityMvcProject.CampusApi.csproj", "{AC2CA3BD-03D3-4953-8A9A-13E9D648304C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{C4A1936E-CBCE-4A64-83DC-7F77225E51F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C4A1936E-CBCE-4A64-83DC-7F77225E51F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C4A1936E-CBCE-4A64-83DC-7F77225E51F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC2CA3BD-03D3-4953-8A9A-13E9D648304C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC2CA3BD-03D3-4953-8A9A-13E9D648304C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC2CA3BD-03D3-4953-8A9A-13E9D648304C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC2CA3BD-03D3-4953-8A9A-13E9D648304C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

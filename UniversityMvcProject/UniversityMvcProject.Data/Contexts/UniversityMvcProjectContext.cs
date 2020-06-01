@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using UniversityMvcProject.Data.Models;
 
-namespace UniversityMvcProject.Data.Data
+namespace UniversityMvcProject.Data.Contexts
 {
     public class UniversityMvcProjectContext : DbContext
     {
