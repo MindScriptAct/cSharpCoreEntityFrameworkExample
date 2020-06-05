@@ -2,6 +2,7 @@
 {
     public enum StudentStatus
     {
+        UNDEFINED,
         Good,
         Average,
         Bad
