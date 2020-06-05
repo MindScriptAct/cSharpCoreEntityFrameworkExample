@@ -42,6 +42,14 @@ namespace UniversityMvcProject.CampusApi.Controllers
             return dormitory;
         }
 
+        // GET: api/Dormitories/5
+        [MapToApiVersion("1.2")]
+        [HttpGet("{id}")]
+        public async Task<ActionResult<Dormitory>> GetDormitoryVersion12(int id)
+        {
+            return BadRequest("This API is in future.");
+        }
+
         // POST: api/Dormitories
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
