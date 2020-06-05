@@ -17,5 +17,7 @@ namespace UniversityMvcProject.Data.Contexts
         public DbSet<Student> Students { get; set; }
         
         public DbSet<StudentSubject> StudentSubjects { get; set; }
+        
+        public DbSet<Dormitory> Dormitories { get; set; }
     }
 }
