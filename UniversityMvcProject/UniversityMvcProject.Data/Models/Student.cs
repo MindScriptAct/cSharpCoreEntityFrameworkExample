@@ -23,5 +23,9 @@ namespace UniversityMvcProject.Data.Models
         [DataType(DataType.Date)]
         public DateTime BirthDay { get; set; }
 
+        public int? DormitoryId { get; set; }
+        public Dormitory Dormitory { get; set; }
+        
+
     }
 }
