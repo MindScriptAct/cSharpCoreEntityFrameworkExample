@@ -9,6 +9,7 @@ using UniversityMvcProject.Data;
 using UniversityMvcProject.Data.Contexts;
 using UniversityMvcProject.Data.Models;
 using UniversityMvcProject.Models;
+using UniversityMvcProject.ViewModels;
 
 namespace UniversityMvcProject.Controllers
 {
@@ -42,7 +43,14 @@ namespace UniversityMvcProject.Controllers
                 return NotFound();
             }
 
-            return View(student);
+            var subjects = await _context.StudentSubjects.Where(ss => ss.StudentId == id).Select(ss => ss.Subject).ToListAsync();
+
+
+            return View(new StudentDetailViewModel()
+            {
+                Student = student,
+                Subjects = subjects
+            });
         }
 
         // GET: StudentAdmin/Create
