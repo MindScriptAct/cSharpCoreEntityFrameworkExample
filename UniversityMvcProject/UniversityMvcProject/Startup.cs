@@ -34,6 +34,7 @@ namespace UniversityMvcProject
 
             services.AddSingleton<ICampusApiClient, CampusApiClient>();
 
+
             services.AddDbContext<UniversityMvcProjectContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("UniversityMvcProjectContext")));
         }

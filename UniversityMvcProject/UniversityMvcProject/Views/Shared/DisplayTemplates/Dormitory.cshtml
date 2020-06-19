@@ -1,0 +1,15 @@
+﻿@model UniversityMvcProject.Data.Models.Dormitory
+
+
+
+
+<div>
+    @if (Model == null || Model.Street == null)
+    {
+        <text>homeless</text>
+    }
+    else
+    {
+        @Html.DisplayFor(model => model.Street) <text>-</text> @Html.DisplayFor(model => model.House)
+    }
+</div>

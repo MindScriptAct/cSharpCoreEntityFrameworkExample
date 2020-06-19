@@ -27,7 +27,5 @@ namespace UniversityMvcProject.Data.Models
         
         [DisplayFormat(NullDisplayText = "homeless")]
         public Dormitory Dormitory { get; set; }
-        
-
     }
 }
