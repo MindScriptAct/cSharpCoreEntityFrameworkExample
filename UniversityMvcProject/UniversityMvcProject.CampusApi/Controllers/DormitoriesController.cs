@@ -23,7 +23,7 @@ namespace UniversityMvcProject.CampusApi.Controllers
 
         // GET: api/Dormitories
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Dormitory>>> GetDormitory()
+        public async Task<ActionResult<IEnumerable<Dormitory>>> GetDormitories()
         {
             return await _context.Dormitories.ToListAsync();
         }
@@ -43,12 +43,12 @@ namespace UniversityMvcProject.CampusApi.Controllers
         }
 
         // GET: api/Dormitories/5
-        [MapToApiVersion("1.2")]
-        [HttpGet("{id}")]
-        public async Task<ActionResult<Dormitory>> GetDormitoryVersion12(int id)
-        {
-            return BadRequest("This API is in future.");
-        }
+        //[MapToApiVersion("1.2")]
+        //[HttpGet("{id}")]
+        //public async Task<ActionResult<Dormitory>> GetDormitoryVersion12(int id)
+        //{
+        //    return BadRequest("This API is in future.");
+        //}
 
         // POST: api/Dormitories
         // To protect from overposting attacks, enable the specific properties you want to bind to, for

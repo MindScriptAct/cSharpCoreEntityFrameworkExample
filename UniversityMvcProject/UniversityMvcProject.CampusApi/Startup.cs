@@ -31,6 +31,8 @@ namespace UniversityMvcProject.CampusApi
         {
             services.AddControllers();
 
+            services.AddSwaggerDocument();
+
             services.AddDbContext<UniversityCampusContext>(options => options.UseSqlServer(Configuration.GetConnectionString("UniversityMvcProjectContext")));
 
             services.AddApiVersioning(cfg =>
@@ -55,6 +57,9 @@ namespace UniversityMvcProject.CampusApi
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseOpenApi();
+            app.UseSwaggerUi3();
 
             app.UseEndpoints(endpoints =>
             {
