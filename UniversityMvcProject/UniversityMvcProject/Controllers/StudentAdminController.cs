@@ -24,7 +24,7 @@ namespace UniversityMvcProject.Controllers
         // GET: StudentAdmin
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Students.ToListAsync());
+            return View(await _context.Students.Include(s => s.Dormitory).ToListAsync());
         }
 
         // GET: StudentAdmin/Details/5
@@ -48,6 +48,7 @@ namespace UniversityMvcProject.Controllers
         // GET: StudentAdmin/Create
         public IActionResult Create()
         {
+            ViewBag.DormitoryId = new SelectList(_context.Dormitories, "Id", "Streat");
             return View();
         }
 

@@ -24,6 +24,8 @@ namespace UniversityMvcProject.Data.Models
         public DateTime BirthDay { get; set; }
 
         public int? DormitoryId { get; set; }
+        
+        [DisplayFormat(NullDisplayText = "homeless")]
         public Dormitory Dormitory { get; set; }
         
 

@@ -12,6 +12,7 @@ using UniversityMvcProject.Models;
 using Microsoft.EntityFrameworkCore;
 using UniversityMvcProject.Data;
 using UniversityMvcProject.Data.Contexts;
+using UniversityMvcProject.Services;
 
 namespace UniversityMvcProject
 {
@@ -30,6 +31,8 @@ namespace UniversityMvcProject
             services.AddControllersWithViews();
 
             services.AddSingleton<ICourseDataProvider, InMemoryCourseProvider>();
+
+            services.AddSingleton<ICampusApiClient, CampusApiClient>();
 
             services.AddDbContext<UniversityMvcProjectContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("UniversityMvcProjectContext")));
