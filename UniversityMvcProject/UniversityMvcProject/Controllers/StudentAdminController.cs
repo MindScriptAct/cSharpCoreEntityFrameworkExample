@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -16,10 +17,12 @@ namespace UniversityMvcProject.Controllers
     public class StudentAdminController : Controller
     {
         private readonly UniversityMvcProjectContext _context;
+        private readonly IMapper mapper;
 
-        public StudentAdminController(UniversityMvcProjectContext context)
+        public StudentAdminController(UniversityMvcProjectContext context, IMapper mapper)
         {
             _context = context;
+            this.mapper = mapper;
         }
 
         // GET: StudentAdmin
@@ -46,11 +49,14 @@ namespace UniversityMvcProject.Controllers
             var subjects = await _context.StudentSubjects.Where(ss => ss.StudentId == id).Select(ss => ss.Subject).ToListAsync();
 
 
-            return View(new StudentDetailViewModel()
-            {
-                Student = student,
-                Subjects = subjects
-            });
+
+
+            var viewModel = mapper.Map<StudentDetailViewModel>(student);
+            viewModel.Subjects = subjects;
+
+
+
+            return View(viewModel);
         }
 
         // GET: StudentAdmin/Create

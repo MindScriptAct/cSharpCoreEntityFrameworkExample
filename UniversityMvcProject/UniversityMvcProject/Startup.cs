@@ -13,6 +13,7 @@ using Microsoft.EntityFrameworkCore;
 using UniversityMvcProject.Data;
 using UniversityMvcProject.Data.Contexts;
 using UniversityMvcProject.Services;
+using AutoMapper;
 
 namespace UniversityMvcProject
 {
@@ -28,6 +29,9 @@ namespace UniversityMvcProject
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
+            services.AddAutoMapper(typeof(Startup));
+
             services.AddControllersWithViews();
 
             services.AddSingleton<ICourseDataProvider, InMemoryCourseProvider>();
