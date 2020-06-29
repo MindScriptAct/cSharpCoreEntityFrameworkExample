@@ -46,7 +46,7 @@ namespace TodoListApp.Controllers
         // GET: TodoItems/Create
         public IActionResult Create()
         {
-            return View();
+            return View(new TodoItem() { Preority = 3 });
         }
 
         // POST: TodoItems/Create
@@ -54,10 +54,11 @@ namespace TodoListApp.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,Description,CreationDate,DeadLineDate,Preority,Status")] TodoItem todoItem)
+        public async Task<IActionResult> Create([Bind("Id,Name,Description,DeadLineDate,Preority,Status")] TodoItem todoItem)
         {
             if (ModelState.IsValid)
             {
+                todoItem.CreationDate = DateTime.UtcNow;
                 _context.Add(todoItem);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -86,7 +87,7 @@ namespace TodoListApp.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Description,CreationDate,DeadLineDate,Preority,Status")] TodoItem todoItem)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Description,DeadLineDate,Preority,Status")] TodoItem todoItem)
         {
             if (id != todoItem.Id)
             {
