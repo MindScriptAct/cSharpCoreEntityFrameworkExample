@@ -22,7 +22,7 @@ namespace TodoListApp.Controllers
         // GET: TodoItems
         public async Task<IActionResult> Index()
         {
-            return View(await _context.TodoItem.ToListAsync());
+            return View(await _context.TodoItem.Include(t => t.Category).ToListAsync());
         }
 
         // GET: TodoItems/Details/5
@@ -33,7 +33,7 @@ namespace TodoListApp.Controllers
                 return NotFound();
             }
 
-            var todoItem = await _context.TodoItem
+            var todoItem = await _context.TodoItem.Include(t => t.Category)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (todoItem == null)
             {
@@ -46,6 +46,7 @@ namespace TodoListApp.Controllers
         // GET: TodoItems/Create
         public IActionResult Create()
         {
+            ViewData["CategoryId"] = new SelectList(_context.Category, "Id", "Name");
             return View(new TodoItem() { Preority = 3 });
         }
 
@@ -54,7 +55,7 @@ namespace TodoListApp.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,Description,DeadLineDate,Preority,Status")] TodoItem todoItem)
+        public async Task<IActionResult> Create([Bind("Id,Name,Description,DeadLineDate,Preority,Status,CategoryId")] TodoItem todoItem)
         {
             if (ModelState.IsValid)
             {
@@ -79,6 +80,7 @@ namespace TodoListApp.Controllers
             {
                 return NotFound();
             }
+            ViewData["CategoryId"] = new SelectList(_context.Category, "Id", "Name");
             return View(todoItem);
         }
 
@@ -87,7 +89,7 @@ namespace TodoListApp.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Description,DeadLineDate,Preority,Status")] TodoItem todoItem)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Description,DeadLineDate,Preority,Status,CategoryId")] TodoItem todoItem)
         {
             if (id != todoItem.Id)
             {
@@ -125,7 +127,7 @@ namespace TodoListApp.Controllers
                 return NotFound();
             }
 
-            var todoItem = await _context.TodoItem
+            var todoItem = await _context.TodoItem.Include(t => t.Category)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (todoItem == null)
             {
