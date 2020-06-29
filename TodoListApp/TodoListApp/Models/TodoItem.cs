@@ -29,6 +29,10 @@ namespace TodoListApp.Models
         public TodoStatus Status { get; set; } = TodoStatus.Backlog;
 
 
+        public int? CategoryId { get; set; }
+        public Category Category { get; set; }
+
+
 
     }
 }
