@@ -15,5 +15,7 @@ namespace TodoListApp.Data
         }
 
         public DbSet<TodoListApp.Models.TodoItem> TodoItem { get; set; }
+
+        public DbSet<TodoListApp.Models.Category> Category { get; set; }
     }
 }
